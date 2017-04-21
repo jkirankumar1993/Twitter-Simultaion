@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tweet Reply Display</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dataTable var="p" value="#{loginuser.getalltweetsforuserhomepage()}">
+                 <p:column>
+                     <img class='imagem_artigo'  src="data:image/png;base64,#{loginuser.getuserprofilephoto(p.username)}" style="width: 50px;height: 70px;  padding: 10px;"></img>
+                     <p:outputLabel value="#{p.id}"></p:outputLabel>
+                     <p:outputLabel value="#{p.name}"></p:outputLabel>&nbsp;&nbsp;<p:outputLabel value="@#{p.username}">&nbsp;&nbsp;</p:outputLabel><p:outputLabel value="#{p.tweet_time}"></p:outputLabel><br></br><br></br>
+                     <p:outputLabel value="#{p.tweet_msg}"></p:outputLabel><br></br>
+                     <img class='imagem_artigo'  src="data:image/png;base64,#{p.gettweetimg()}" style="width: 150px;height: 170px; margin-left: 110px; padding: 10px;"></img>
+                     <br></br><br></br>
+                 </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

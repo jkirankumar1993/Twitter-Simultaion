@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 8, 2016, 4:21:01 PM
+    Author     : jkira
+*/
+
+
+
+.root {
+    background: url("/Images/homepage.jpg") no-repeat;
+}
+*{
+    margin: 0;
+}
+
+#headerS{
+    background-color: black;      
+    height: 95px;
+    border: solid 0.1px appworkspace;
+    margin: initial;
+    display: flex;
+}
+#header{
+    background-color: black;      
+    height: 95px;
+    border: solid 0.1px appworkspace;
+    margin: initial;
+}
+#logo{
+   margin-left: 600px;
+}
+
+#form{
+       
+       color: black;
+       height: 110%;
+       width: 400px;      
+       margin-top: 200px;
+       margin-left: 500px;
+   }
+   
+   #gorgotpass{
+       color: white;
+       margin-left: 380px;
+   }
+
+body{
+    background-image: url("../Images/homepage.jpg");
+   }
+   #bb{
+           background-image: url("../Images/homepage.jpg");
+   }
+   
+   #search{
+       margin-left: 200px;
+   }
+   
+   .userpageleft{
+       border: solid 1px black;
+       margin-left: 40px;
+       padding: 10px;
+       width: 400px;
+       height: 600px;
+       background-color: white;
+   }
+   
+   .userpagecenter{
+       border: activecaption 1px black;
+       margin-left: 30px;
+       padding: 10px;
+       width: 600px;
+       
+       
+   }
+   
+   .bbody{
+       display: flex;
+       padding: 10px;
+   }
+   
+   
+  .preformatted {
+    white-space: pre-wrap;
+}

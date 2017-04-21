@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Conversation - Search</title>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+       <div id="header">
+            <p:commandButton value="Home" action="#{loginuser.gotouserhomepage()}"></p:commandButton>
+            <p:commandButton id="notification" value="Notifications" action="#{loginuser.gotonotifications()}"></p:commandButton>
+            <p:commandButton id="messaging" value="Direct Messaging" action="Messaging_home.xhtml?faces-redirect=true"></p:commandButton>
+            <h:graphicImage id="logo" value="/Images/twittericon.png" style="margin-left: 350px; margin-top: 20px;" height="50px"></h:graphicImage>
+            <p:autoComplete id="acsimple" value="#{loginuser.searchterm}" style="margin-left: 155px;" title="Search" completeMethod="#{loginuser.completeText}"></p:autoComplete>
+            <p:commandButton value="Search" action="#{loginuser.search()}"></p:commandButton>
+            <p:menuButton value="Settings" style="width: 30px;height: 30px;">
+                <p:menuitem value="Change Password" action="Changepassword.xhtml?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Logout" icon="fa-sign-out" action="#{loginuser.logout()}"></p:menuitem>
+            </p:menuButton>
+            <p:commandButton value="Tweet" style="margin-left: 100px;" action="#{loginuser.gototweetpage()}"></p:commandButton>
+        </div>
+    </h:form>
+        <div class="bbody">
+        <div class="userpageleft">
+            <div id='profilpic'>
+                <h:graphicImage class='img-thumbnail'  value="data:image/png;base64,#{loginuser.getuserprofilephoto()}" style="width: 150px;height: 170px; margin-left: 110px; padding: 10px;"></h:graphicImage><br></br>
+                <p:outputLabel value="#{loginuser.get_user_name()}" style="margin-left: 130px; padding: 10px;"></p:outputLabel>
+                <p:outputLabel value="@#{loginuser.username}" style=" margin-left: 130px; padding: 10px;"></p:outputLabel><br></br>
+                <p:commandLink value="Following(#{loginuser.get_following_count()})" action="showfollowing.xhtml?faces-redirect=true" style="margin-left: 80px; padding: 10px;"></p:commandLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <p:commandLink value="Followers(#{loginuser.get_follower_count()})" action="showfollowers.xhtml?faces-redirect=true"></p:commandLink>
+                
+            </div>
+        </div>
+        <div class="userpagecenter">
+            <h:form>
+                
+                <p:inputText id="search" value="#{loginuser.searchterm_user}"></p:inputText>
+                <p:commandButton id="btn" value="Search" action="#{loginuser.search_user_for_conversation()}"></p:commandButton>
+                <p:dataTable var="p" value="#{loginuser.searchresultset}">
+                
+                 <p:column>
+                     <img class='imagem_artigo'  src="data:image/png;base64,#{loginuser.getuserprofilephoto(p.username)}" style="width: 50px;height: 70px;  padding: 10px;"></img>
+                     <p:commandLink id="username" value="@#{p.username}" action="#{loginuser.goto_conversation(p.username)}"></p:commandLink>
+                     <p:tooltip id="tooltipusername" for="username" position="bottom">
+                         <img class='imagem_artigo'  src="data:image/png;base64,#{loginuser.getuserprofilephoto(p.username)}" style="width: 150px;height: 170px;  padding: 10px;"></img>
+                     </p:tooltip>                    
+      
+                    </p:column>
+                 
+                              
+              </p:dataTable>
+            </h:form>           
+            
+        </div>
+       </div>
+    </h:body>
+</html>
+
